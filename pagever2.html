@@ -1,0 +1,288 @@
+<style media="screen">
+
+  a{
+    color : blue;
+  }
+  .grid{
+
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+
+  @media(min-width:1200px){
+    .grid{
+    width:1200px;
+  }
+  }
+
+
+
+#title{
+
+  font-size: 30px;
+  text-align: center;
+  padding: 20px ;
+  border :1px solid #ccc;
+  border-radius:5px;
+
+}
+#sellintro{
+  font-size: 15px;
+  text-align: center;
+  padding: 10px ;
+  border :1px solid #ccc;
+    border-radius:5px;
+}
+
+.interval{
+padding: 5px;
+}
+
+
+  ul.tabs{
+      border-top :1px solid #ccc;
+      border-left :1px solid #ccc;
+      border-right :1px solid #ccc;
+    margin: 0px;
+    padding: 10px;
+    list-style: none;
+  }
+  ul.tabs li{
+    border :1px solid #ccc;
+      padding: 7px ;
+      font-size: 15px;
+      border-radius:10px;
+    display:inline-block;
+     background-color: #CECECE;
+      cursor: pointer;
+      font-weight: 100;
+  }
+
+  ul.tabs li.current{
+    background: #FF5252;
+    color: #222;
+  }
+
+  .tab-content{
+    display: none;
+    cursor: pointer;
+    border :1px solid #ccc;
+
+    padding: 15px;
+  }
+
+  .tab-content.current{
+    cursor: pointer;
+    display: inherit;
+  }
+
+
+  #searchtable{
+   margin-top:15px ;
+   padding : 10px;
+    border :1px solid #ccc;
+      border-radius:3px;
+        text-align:center;
+        cursor: pointer;
+      }
+.searchintro
+{
+  padding-bottom : 15px ;
+}
+
+.searchbutton{
+    background: #FF5252;
+  width : 100px ;
+  height : 25px ;
+  border-radius:3px;
+  text-align:center;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  padding-top: 4px;
+
+
+ }
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
+
+})
+
+function addItem(item) {
+    var itemInCart = item.cloneNode(true);
+
+    itemInCart.onclick = function() { removeItem(this); };
+
+    var searchtable = document.getElementById("searchtable");
+
+    searchtable.appendChild(itemInCart);
+}
+
+function removeItem(item) {
+    var itemInItems = item.cloneNode(true);
+    itemInItems.onclick = function() { addItem(this); };
+
+    var searchtable = document.getElementById("searchtable");
+    searchtable.removeChild(item);
+}
+
+function searchlistpusher() {
+  var searchlistImg = [];
+  $('#searchtable').children('img').each(function() {
+      searchlistImg.push($(this).attr('src'));
+  });
+
+}
+
+
+
+
+</script>
+
+<div class="grid">
+  <div id="title">
+    뱅드림 계정 서치 페이지
+  </div>
+
+  <div id="sellintro">
+    입금후 카카오계정 이메일, 비번 알려주시면 제가 직접 연동해드립니다.
+    <br>이미 연동된 계정이 있다면 카카오톡 설정창 - 개인/보안 - 연결된 서비스관리
+    뱅드림 아이콘 터치 후 모든 정보 삭제. 이 방법으로 연동해제 해주셔야 합니다.
+    <br>이미 판매된 계정이나 오류때문에 구매 불가능한 계정이 있을 수 있습니다.
+    <br> 구매/문의: <a href="https://open.kakao.com/o/sio8FLK" target="_blank">https://open.kakao.com/o/sio8FLK</a>
+    <br> <br> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTFIYq4_Uqa_83pFnE05uaVVkm4riw0OuQ2pWI21_eN_ASFMtrQRnORryZEnQ6hatE7WVm16uigqpB0/pubhtml" target="_blank">구글 스프레드시트로 보러가기</a>
+   </div>
+   <div class="interval">
+   </div>
+
+<div class="container">
+
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">[poppin'party] 4성</li>
+		<li class="tab-link" data-tab="tab-2">[Roselia] 4성</li>
+		<li class="tab-link" data-tab="tab-3">[Afterglow] 4성</li>
+    <li class="tab-link" data-tab="tab-4">[Hello, Happyworld] 4성</li>
+    <li class="tab-link" data-tab="tab-5">[Pastel,Palettes] 4성</li>
+	</ul>
+
+	<div id="tab-1" class="tab-content current">
+
+<div id="items">
+    <img src="image\powerfulRimi1st.png" class="item" id="item1" onclick="addItem(this);">
+    <img src="image\pureSaya1st.png"  class="item" id="item2" onclick="addItem(this);">
+
+    <img src="image\PureKasumi1st.png"  class="item" id="item4" onclick="addItem(this);">
+    <img src="image\pureArisa1st.png"  class="item" id="item5" onclick="addItem(this);">
+    <img src="image\powerfulTae1st.png"  class="item" id="item6" onclick="addItem(this);">
+    <img src="image\powerfulKasumi1st.png"  class="item" id="item7" onclick="addItem(this);">
+    <img src="image\happyTae1st.png"  class="item" id="item8" onclick="addItem(this);">
+    <img src="image\happySaya1st.png"  class="item" id="item9" onclick="addItem(this);">
+    <img src="image\coolTae1st.png"  class="item" id="item10" onclick="addItem(this);">
+
+    <img src="image\coolKasumi1st.png"  class="item" id="item12" onclick="addItem(this);">
+    <img src="image\coolArisa1st.png"  class="item" id="item13" onclick="addItem(this);">
+</div>
+
+	</div>
+	<div id="tab-2" class="tab-content">
+    <div id="items">
+    <img src="image\coolRinko1st.png" class="item" id="item14" onclick="addItem(this);">
+        <img src="image\coolRisa1st.png" class="item" id="item15" onclick="addItem(this);">
+        <img src="image\coolYukina1st.png" class="item" id="item16" onclick="addItem(this);">
+        <img src="image\happyAko1st.png" class="item" id="item17" onclick="addItem(this);">
+        <img src="image\happyRinko1st.png" class="item" id="item18" onclick="addItem(this);">
+        <img src="image\happySayo1st.png" class="item" id="item19" onclick="addItem(this);">
+        <img src="image\powerfulAko1st.png" class="item" id="item20" onclick="addItem(this);">
+        <img src="image\powerfulRisa1st.png" class="item" id="item21" onclick="addItem(this);">
+        <img src="image\powerfulSayo1st.png" class="item" id="item22" onclick="addItem(this);">
+        <img src="image\powerfulYukina1st.png" class="item" id="item23" onclick="addItem(this);">
+        <img src="image\pureRinko1st.png" class="item" id="item24" onclick="addItem(this);">
+        <img src="image\pureRisa1st.png" class="item" id="item25" onclick="addItem(this);">
+        <img src="image\PureYukina1st.png" class="item" id="item26" onclick="addItem(this);">
+        <img src="image\pureSayo1st.png" class="item" id="item27" onclick="addItem(this);">
+        </div>
+	</div>
+	<div id="tab-3" class="tab-content">
+    <div id="items">
+    <img src="image\CoolHimari1st.png" class="item" id="item28" onclick="addItem(this);">
+        <img src="image\CoolRan1st.png" class="item" id="item29" onclick="addItem(this);">
+        <img src="image\HappyTomoe1st.png" class="item" id="item30" onclick="addItem(this);">
+        <img src="image\happyHimari1st.png" class="item" id="item31" onclick="addItem(this);">
+        <img src="image\powerfulRan1st.png" class="item" id="item32" onclick="addItem(this);">
+        <img src="image\happyRan1st.png" class="item" id="item33" onclick="addItem(this);">
+        <img src="image\happyTsugumi1st.png" class="item" id="item34" onclick="addItem(this);">
+        <img src="image\powerfulHiamri1st.png" class="item" id="item35" onclick="addItem(this);">
+        <img src="image\powerfulTomoe1st.png" class="item" id="item36" onclick="addItem(this);">
+        <img src="image\coolMoka1st.png" class="item" id="item37" onclick="addItem(this);">
+        <img src="image\pureRan1st.png" class="item" id="item38" onclick="addItem(this);">
+  </div>
+	</div>
+  <div id="tab-4" class="tab-content">
+    <div id="items">
+    <img src="image\coolKanon1st.png" class="item" id="item39" onclick="addItem(this);">
+        <img src="image\pureHagumi1st.png" class="item" id="item40" onclick="addItem(this);">
+        <img src="image\pureKokoro1st.png" class="item" id="item41" onclick="addItem(this);">
+        <img src="image\powerfulKanon1st.png" class="item" id="item42" onclick="addItem(this);">
+        <img src="image\coolHagumi1st.png" class="item" id="item43" onclick="addItem(this);">
+        <img src="image\powerfulKokoro1st.png" class="item" id="item44" onclick="addItem(this);">
+        <img src="image\happyMisaki1st.png" class="item" id="item45" onclick="addItem(this);">
+        <img src="image\coolMisaki1st.png" class="item" id="item46" onclick="addItem(this);">
+        <img src="image\happyKaoru1st.png" class="item" id="item47" onclick="addItem(this);">
+        <img src="image\pureKaoru1st.png" class="item" id="item48" onclick="addItem(this);">
+        <img src="image\happyKanon1st.png" class="item" id="item49" onclick="addItem(this);">
+        <img src="image\happyKokoro1st.png" class="item" id="item50" onclick="addItem(this);">
+  </div>
+  </div>
+  <div id="tab-5" class="tab-content">
+    <div id="items">
+    <img src="image\coolMaya1st.png" class="item" id="item51" onclick="addItem(this);">
+        <img src="image\coolEve1st.png" class="item" id="item52" onclick="addItem(this);">
+        <img src="image\coolChisato1st.png" class="item" id="item53" onclick="addItem(this);">
+        <img src="image\coolHina1st.png" class="item" id="item54" onclick="addItem(this);">
+        <img src="image\pureMaya1st.png" class="item" id="item55" onclick="addItem(this);">
+        <img src="image\pureAya1st.png" class="item" id="item56" onclick="addItem(this);">
+        <img src="image\pureEve1st.png" class="item" id="item57" onclick="addItem(this);">
+        <img src="image\powerfulEve1st.png" class="item" id="item58" onclick="addItem(this);">
+        <img src="image\happyMaya1st.png" class="item" id="item59" onclick="addItem(this);">
+        <img src="image\pureChisato1st.png" class="item" id="item60" onclick="addItem(this);">
+        <img src="image\happyHina1st.png" class="item" id="item61" onclick="addItem(this);">
+          <img src="image\powerfulAya1st.png" class="item" id="item62" onclick="addItem(this);">
+  </div>
+  </div>
+</div>
+<div id="searchtable">
+  <div class="searchintro">
+    선택한 목록
+  </div>
+
+</div>
+
+<div class="searchbutton">
+  <div onclick="searchlistpusher();">
+    서치
+  </div>
+</div>
+
+
+
+
+
+
+</div>
